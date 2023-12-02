@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="script.js" defer></script>
+    <title>Amigo Invisible</title>
+</head>
+
+<body>
+    <header>
+        <div class="container-header">
+            <h2>Amigo Invisible</h2>
+        </div>
+    </header>
+    <main>
+        <div class="caja-principal" id="carga-datos">
+            <div class="titulo-caja-principal">
+                <p>Agrega los amigos Invisibles: </p>
+            </div>
+            <div class="agregar-listado">
+                <input type="text" name="textoAgregar" id="txtAgregar" placeholder="Ingrese un nombre...">
+                <button id="btnAgregar" onclick="agregarAmigo()">+</button>
+            </div>
+            <div class="listado-amigos">
+                <p id="lista-amigos"></p>
+            </div>
+            <div class="caja-mensaje" id="mensaje-caja">
+                <p id="mensaje"></p>
+            </div>
+            <div class="finalizar">
+                <p class="aclaracion">(Recuerde antes de finalizar que la cantidad de amigos invisibles debe ser par)</p>
+                <button id="btnFinalizar" class="botones" onclick="finalizarCarga()">Finalizar</button>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
