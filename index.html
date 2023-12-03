@@ -26,7 +26,11 @@
             </div>
             <div class="agregar-listado">
                 <input type="text" name="textoAgregar" id="txtAgregar" placeholder="Ingrese un nombre...">
-                <button id="btnAgregar" onclick="agregarAmigo()">+</button>
+                <div class="caja-email">
+                    <input type="email" name="textoEmail" id="txtEmail" placeholder="Ingrese su email...">
+                    <p>(Opcional)</p>
+                </div>
+                <button id="btnAgregar" class="botones" onclick="agregarAmigo()">Agregar</button>
             </div>
             <div class="listado-amigos">
                 <p id="lista-amigos"></p>

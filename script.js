@@ -6,17 +6,21 @@ const cargaDatos = document.getElementById('carga-datos')
 const main = document.getElementsByTagName('main')
 const mensajeValidacion = document.getElementById('mensaje-caja')
 const mensajeParrafo = document.getElementById('mensaje')
+const textoEmail = document.getElementById('txtEmail')
 
 const amigos = []
+const amigosEmails = []
 
 function agregarAmigo() {
     if (textoAmigo.value != "") {
-        if (!(validarExistencia(textoAmigo.value))){
+        if (!(validarExistencia(textoAmigo.value, textoEmail.value))){
             return
         }
         amigos.push(textoAmigo.value)
+        amigosEmails.push(textoEmail.value)
         listaAmigos.innerHTML = amigos.join(" - ") 
         textoAmigo.value = ""
+        textoEmail.value = ""
         textoAmigo.focus()
     }
     else{
@@ -24,10 +28,14 @@ function agregarAmigo() {
     }
 }
 
-function validarExistencia(texto) {
+function validarExistencia(texto, email) {
     for (let i = 0; i < amigos.length; i++) {
         if(amigos[i] == texto){
             mostrarMensaje("El nombre ingresado ya existe.", "amarillo")
+            return false
+        }
+        if(amigosEmails[i] == email){
+            mostrarMensaje("El email ingresado ya existe.", "amarillo")
             return false
         }
     }
@@ -36,26 +44,27 @@ function validarExistencia(texto) {
 
 function finalizarCarga() {
     let html = ""
-    if(!(validarFinalizacion())){
+    if (!validarFinalizacion()) {
         return
     }
-    let arrayDesordenado = ordenarArrayAleatoriamente(amigos)
+    let arrayDesordenado = ordenarArrayAleatoriamente(amigos);
     cargaDatos.style.display = "none"
     html += `
     <div class="caja-principal">
         <div class="titulo-caja-principal">
-            <p>Las selección quedo de la siguiente manera: </p>
+            <p>La selección quedó de la siguiente manera: </p>
         </div>
         <div>
     `
     for (let i = 0; i < amigos.length; i++) {
-        html += `<p>${amigos[i]} <i class="fa-solid fa-gift"></i> <i class="fa-solid fa-arrow-right"></i> ${arrayDesordenado[i]}</p>`
+        html += `<p>${amigos[i]} <i class="fa-solid fa-gift"></i> <i class="fa-solid fa-arrow-right"></i> ${arrayDesordenado[i]} -  
+        <a href="mailto:${amigosEmails[i]}?subject=Hola ${amigos[i]}. Tu amigo invisible es...&body=Tu amigo invisible es: ${arrayDesordenado[i]}" title="Enviar Email"><i class="fa-regular fa-envelope"></i></a></p>`
     }
     html += `   
     </div>
     <div class="finalizar">
-    <h2>Feliz Navidad !!!</h2>
-    <button class="botones" onclick="recargar()">Regresar</button>
+        <h2>Feliz Navidad !!!</h2>
+        <button class="botones" onclick="recargar()">Regresar</button>
     </div>
     </div>`
     main[0].innerHTML = html

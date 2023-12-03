@@ -40,8 +40,8 @@ header, main{
 
 .agregar-listado{
     display: flex;
-    justify-content: center;
-    gap: 10px;
+    align-items: center;
+    flex-direction: column;
 }
 
 .listado-amigos{
@@ -53,22 +53,21 @@ header, main{
     text-decoration: underline;
 }
 
-#btnAgregar{
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    color: white;
-    border: 0px;
-    font-size: 20px;
-    background-color: rgb(135, 44, 53);
-    cursor: pointer;
-}
 #btnAgregar:hover{
     background-color: rgb(114, 78, 81);
 }
 
-#txtAgregar{
+#txtAgregar, #txtEmail{
     border-radius: 7px 7px 7px 7px;
+}
+
+.caja-email{
+    display: flex;
+    gap: 10px;
+    font-size: 15px;
+    margin-left: 66px;
+    justify-content: center;
+    align-items: center;
 }
 
 .aclaracion{
@@ -109,6 +108,10 @@ header, main{
     align-items: center;
 }
 
+a{
+    color: black;
+}
+
 @media (max-width: 376px) {
     .caja-principal{
         font-size: 15px;
@@ -116,9 +119,21 @@ header, main{
     #txtAgregar{
         width: 100px;
     }
+    #txtEmail{
+        width: 100px;
+    }
 }
 @media (max-width: 726px) {
     .caja-mensaje{
         height: auto;
+    }
+}
+
+@media (max-width: 560px) {
+    .caja-email{
+        flex-direction: column;
+        margin-left: 0px;
+        gap: 0px;
+        margin-top: 10px;
     }
 }
