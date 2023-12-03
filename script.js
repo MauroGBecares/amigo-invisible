@@ -44,7 +44,7 @@ function finalizarCarga() {
     html += `
     <div class="caja-principal">
         <div class="titulo-caja-principal">
-            <p>Las elecciones quedaron de la siguiente manera: </p>
+            <p>Las selección quedo de la siguiente manera: </p>
         </div>
         <div>
     `
@@ -53,7 +53,8 @@ function finalizarCarga() {
     }
     html += `   
     </div>
-    <div class="finalizar"> 
+    <div class="finalizar">
+    <h2>Feliz Navidad !!!</h2>
     <button class="botones" onclick="recargar()">Regresar</button>
     </div>
     </div>`
